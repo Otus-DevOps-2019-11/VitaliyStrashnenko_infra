@@ -1,7 +1,9 @@
 # VitaliyStrashnenko_infra
 VitaliyStrashnenko Infra repository
 
-#Домашнее задание ssh
+homework #3 - cloud-bastion
+
+bastion_IP = 146.148.123.146 someinternalhost_IP = 10.132.0.6
 
 ssh-add -L
 Could not open a connection to your authentication agent.
@@ -10,11 +12,11 @@ eval `ssh-agent -s`
 ssh-add ~/.ssh/appuser
 редактируем файл /etc/ssh/ssh_config
 раскаментироать и задать
-	ForwardAgent yesForwardAgent yes
-	IdentityFile ~/.ssh/appuser
+        ForwardAgent yesForwardAgent yes
+        IdentityFile ~/.ssh/appuser
 Одной командой заходим через bastion на someinternalhost
 
-ssh -i ~/.ssh/appuser -t -A appuser@146.148.123.146 ssh 10.132.0.6 #Одной командой
+ssh -i ~/.ssh/appuser -t -A appuser@146.148.123.146 ssh 10.132.0.6 #Одной коман$
 
 Дополнительное задание
 
@@ -28,6 +30,3 @@ Host someinternalhost
        RequestTTY force
        RemoteCommand ssh 10.132.0.6
        ForwardAgent yes
-
-bastion_IP = 146.148.123.146
-someinternalhost_IP = 10.132.0.6
